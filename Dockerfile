@@ -1,11 +1,14 @@
-FROM circleci/golang:1.17 as builder
+FROM golang:1.18-bullseye as builder
+
+RUN apt update
+RUN apt install git -y
 
 WORKDIR /appbuild/yagpdb
 COPY yagpdb/. .
 RUN go mod download
 
 WORKDIR /appbuild/yagpdb/cmd/yagpdb
-RUN CGO_ENABLED=0 GOOS=linux go build 
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v 
 
 FROM alpine:latest
 
