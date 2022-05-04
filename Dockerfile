@@ -1,4 +1,4 @@
-FROM golang:1.18-bullseye as builder
+FROM golang:1.17-bullseye as builder
 
 RUN apt update
 RUN apt install git -y
@@ -8,7 +8,7 @@ COPY yagpdb/. .
 RUN go mod download
 
 WORKDIR /appbuild/yagpdb/cmd/yagpdb
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v 
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build 
 
 FROM alpine:latest
 
