@@ -1,4 +1,4 @@
-FROM golang:stretch as builder
+FROM circleci/golang:1.17 as builder
 
 WORKDIR /appbuild/yagpdb
 COPY yagpdb/. .
