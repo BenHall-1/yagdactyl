@@ -5,7 +5,7 @@ COPY yagpdb/. .
 RUN go mod download
 
 WORKDIR /appbuild/yagpdb/cmd/yagpdb
-RUN CGO_ENABLED=0 GOOS=linux go build -v 
+RUN CGO_ENABLED=0 GOOS=linux go build 
 
 FROM alpine:latest
 
