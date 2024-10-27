@@ -1,4 +1,4 @@
-FROM golang:1.20-bullseye as builder
+FROM golang:1.23-bullseye as builder
 
 RUN apt update
 RUN apt install git -y
