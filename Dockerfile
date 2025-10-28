@@ -1,4 +1,4 @@
-FROM golang:1.25-bullseye as builder
+FROM golang:1.25.3-bookworm as builder
 
 RUN apt update
 RUN apt install git -y
